@@ -1,0 +1,16 @@
+{
+  "name": "format-date",
+  "version": "1.0.0",
+  "description": "You should: -> npm init -y.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.test.js",
+    "start": "node uptime.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
