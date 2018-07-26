@@ -1,13 +1,22 @@
+//import module assert (Mocha doesn't have this)
+//part of Node (you should not install it)
 const assert = require('assert');
+//import functions for testing
 const formatDate = require('./index');
 
+//test suite(nameFile, callback)
 describe('formatDate', () => {
   describe('seconds', () => {
     it('should return seconds', () => {
+      //first param -name test(formatDate)
+      //actual -> the real results of our function (sometimes we use word:received)
       const actual = formatDate(23);
-
+      //expected -> what we expect from this result
+      //callback(there is test)
       const expected = '23s';
-
+      //assert-> it is function,check whether the result = expectations
+      //assert.equal(method from the library qssert)
+      // if expected != actual -> failed :(
       assert.equal(actual, expected);
     });
 

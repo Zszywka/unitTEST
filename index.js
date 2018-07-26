@@ -5,67 +5,35 @@ const formatDate = (timeInSeconds) => {
   let hour = Number(Math.floor(numberTime / 3600));
   let minute = Number(Math.floor(numberTime % 3600 / 60));
   let second = Number(Math.floor(numberTime % 3600 % 60));
-
-  const resultHour = 0 <= hour ? '' : (hour + 'h');
-  const resultMinute = 0 <= minute ? '' : (minute + 'm');
-  const resultSecond = 0 <= second ? '' : (second + 's');
-
   let results = '';
-  // let sumAllTime = (resultHour + resultMinute + resultSecond);
 
-  // //param does'n exsist
-  // if (timeInSeconds === undefined ) {
-  //   results = '0s';
-  // }
-  // // else {
-  // //   results = sumAllTime;
-  // }
-  // return results;
-
-  //param does'n exsist
-  // if (timeInSeconds === undefined) {
-  //   results = '0s';
-  // }
-  // else if (resultHour === 0) {
-  //   if (resultMinute === 0){
-  //     results = resultSecond
-  //   } else if (resultSecond === 0) {
-  //     results = resultMinute
-  //   } else if (resultMinute === 0 && resultSecond === 0) {
-  //     results = '0s'
-  //   } else {
-  //     results = (resultMinute + resultSecond);
-  //   }
-  // }
-  // else if (resultMinute === 0) {
-  //   if (resultSecond === 0) {
-  //     results = resultHour
-  //   } else {
-  //     results = (resultHour + resultSecond);
-  //   }
-  // }
-  // else if (resultSecond === 0) {
-  //   results = (resultHour + resultMinute);
-  // }
-  // else {
-  //   results = (resultHour + resultMinute + resultSecond)
-  // }
-  // return results;
 
   if (timeInSeconds === undefined) {
     results = '0s';
   }
-  else if (resultHour === 0) {
-    results = (resultMinute + resultSecond);
+  else if (numberTime <= 60) {
+    results = numberTime + 's';
   }
-  else if (resultMinute === 0) {
-    results = (resultHour + resultSecond);
+  else if (numberTime > 60 && numberTime < 3600) {
+    if (second != 0) {
+      results = minute + 'm ' + second + 's'
+    } else {
+      results = minute + 'm'
+    }
   }
-  else if (resultSecond === 0) {
-    results = (resultHour + resultMinute);
-  }
-  else {
-    results = (resultHour + resultMinute + resultSecond);
+  else if (numberTime >= 3600) {
+    if (second != 0 && minute !=0 ) {
+      results = (hour + 'h ' + minute + 'm ' + second + 's');
+    }
+    else if (minute != 0 && second === 0) {
+      results = hour + 'h ' + minute + 'm'
+    }
+    else if (minute === 0 && second != 0) {
+      results = hour + 'h ' + second + 's'
+
+    } else {
+      results = hour + 'h'
+    }
   }
   return results;
 }

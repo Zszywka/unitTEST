@@ -4,7 +4,8 @@
   "description": "You should: -> npm init -y.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha index.test.js",
+    "test": "mocha -b index.test.js",
+    "stop": "mocha --watch index.test.js",
     "start": "node uptime.js"
   },
   "keywords": [],
